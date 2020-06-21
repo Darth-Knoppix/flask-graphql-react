@@ -1,5 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
+
+function getOrders(cb) {
+  fetch(`/graphql`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `query {
+        orders {
+          id
+          name
+          type
+          size
+        }
+      }`,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => cb(res.data.orders))
+    .catch(console.error);
+}
 
 function orderCoffee(size, name, type, cb) {
   fetch(`/graphql`, {
@@ -25,6 +47,10 @@ function orderCoffee(size, name, type, cb) {
 
 function App() {
   const [myOrders, setMyOrders] = useState([]);
+
+  useEffect(() => {
+    getOrders((data) => setMyOrders(data));
+  }, []);
 
   function onSubmitOrderForm(order) {
     orderCoffee(order.size, order.name, order.type, ({ orderCoffee }) => {
