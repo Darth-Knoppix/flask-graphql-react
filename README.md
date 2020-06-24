@@ -2,6 +2,8 @@
 
 Example of a Python Flask backend and GraphQL API with React frontend.
 
+Built as an example for the tutorial [How to create a React + Flask + GraphQL Project](https://blog.sethcorker.com/how-to-create-a-react-flask-graphql-project) on Benevolent Bytes by Seth Corker.
+
 ## Server with Flask
 
 Flask is a lightweight Python server which can easily supply a GraphQL API.
