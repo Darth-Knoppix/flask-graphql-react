@@ -31,7 +31,7 @@ function orderCoffee(size, name, type, cb) {
     },
     body: JSON.stringify({
       query: `mutation {
-        orderCoffee(size: ${size}, name: "${name}", type: ${type}) {
+        orderCoffee(size: ${size}, name: ${JSON.stringify(name)}, type: ${type}) {
           id
           name
           type
