@@ -1,10 +1,12 @@
 ariadne==0.11.0
 click==7.1.2
 Flask==1.1.2
+Flask-Cors==3.0.8
 graphql-core==3.0.5
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+six==1.15.0
 starlette==0.13.4
 typing-extensions==3.7.4.2
 Werkzeug==1.0.1
